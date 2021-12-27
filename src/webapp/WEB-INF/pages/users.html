@@ -1,0 +1,131 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<title></title>-->
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;<header th:insert="blocks/header :: header"></header>&ndash;&gt;-->
+<!--<div th:each="u : ${users}">-->
+    <!--<h3 th:text="${u.name}"/>-->
+    <!--<p th:text="${u.lastName}"/>-->
+    <!--<a th:href=" '/users/' + ${u.id}">something</a>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;<div th:insert="blocks/footer :: footer"></div>&ndash;&gt;-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div>-->
+    <!--<table>-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th> ID </th>-->
+            <!--<th> Name </th>-->
+            <!--<th> Last_Name </th>-->
+            <!--<th> Age </th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr th:if="${users.empty}">-->
+            <!--<td colspan="2"> No Users Available </td>-->
+        <!--</tr>-->
+        <!--<tr th:each="u : ${users}">-->
+            <!--<td><span th:text="${u.id}"> ID </span></td>-->
+            <!--<td><span th:text="${u.name}"> Name </span></td>-->
+            <!--<td><span th:text="${u.lastName}"> Last_Name </span></td>-->
+            <!--<td><span th:text="${u.age}"> Age </span></td>-->
+            <!--<td><input type="hidden" th:value="${u.id}" name="id"/>-->
+                <!--<button type="submit" class="removebutton" name="action" value="remove">Remove</button>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TABLE OF USERS</title>
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-color: #ccc;
+        }
+
+        .tg td {
+            front-familly: Arial, sans-serif;
+            front-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .tg th {
+            front-familly: Arial, sans-serif;
+            front-size: 14px;
+            padding: 10px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+            border-color: #ccc;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        .tg .tg-4eph {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+<!--    tg стиль который указан выше-->
+<div th:align="center" class="tg">
+    <h2>USERS</h2>
+    <br/>
+    <h3><a href="/users/new.html">Add new User</a></h3>
+    <br/>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>LAST_NAME</th>
+            <th>AGE</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="user : ${allUsers}">
+            <td th:text="${user.id}">ID</td>
+            <td th:text="${user.name}">NAME</td>
+            <td th:text="${user.lastName}">LAST_NAME</td>
+            <td th:text="${user.age}">AGE</td>
+            <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>
+            <td><a th:href="@{/remove/{id}(id=${user.id})}">Delete</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
