@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Create New User</title>
-</head>
 <body>
+
 <div align="center">
-    <h2>New User</h2>
-    <form action="/add"  method="post">
+    <h2>Add New User</h2>
+    <form action="/users/new" method="post">
         <table border="0" cellpadding="5">
             <tr>
+                <td>ID:</td>
+                <td><input type="number" th:field="*{user.id}" readonly/></td>
+            </tr>
+            <tr>
                 <td>Name:</td>
-                <td><input name="name"/></td>
+                <td><input type="text" th:field="*{user.name}"/></td>
             </tr>
             <tr>
                 <td>Last Name:</td>
-                <td><input name="lastName"/></td>
+                <td><input type="text" th:field="*{user.lastName}"/></td>
             </tr>
             <tr>
                 <td>Age:</td>
-                <td><input name="age"/></td>
+                <td><input type="text" th:field="*{user.age}"/></td>
             </tr>
             <tr>
-                <td colspan="2"><input type="submit" value="Add"></td>
+                <td colspan="2"><input type="submit" value="Edit"></td>
             </tr>
         </table>
     </form>

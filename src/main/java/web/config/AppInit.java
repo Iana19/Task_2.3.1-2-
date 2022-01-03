@@ -1,18 +1,14 @@
 package web.config;
 
-import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     // Метод, указывающий на класс конфигурации
     @Override
     protected Class<?>[] getRootConfigClasses() {
-//        return null;
-        return new Class<?>[]{HibernateConfig.class};  //  0?
+        return null;
+//        return new Class<?>[]{HibernateConfig.class};
     }
 
 

@@ -1,60 +1,3 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
-<!--<html lang="en">-->
-<!--<head>-->
-    <!--<title></title>-->
-    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--&lt;!&ndash;<header th:insert="blocks/header :: header"></header>&ndash;&gt;-->
-<!--<div th:each="u : ${users}">-->
-    <!--<h3 th:text="${u.name}"/>-->
-    <!--<p th:text="${u.lastName}"/>-->
-    <!--<a th:href=" '/users/' + ${u.id}">something</a>-->
-<!--</div>-->
-
-<!--&lt;!&ndash;<div th:insert="blocks/footer :: footer"></div>&ndash;&gt;-->
-<!--</body>-->
-<!--</html>-->
-
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
-<!--<html lang="en">-->
-<!--<head>-->
-    <!--<meta charset="UTF-8">-->
-    <!--<title></title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<div>-->
-    <!--<table>-->
-        <!--<thead>-->
-        <!--<tr>-->
-            <!--<th> ID </th>-->
-            <!--<th> Name </th>-->
-            <!--<th> Last_Name </th>-->
-            <!--<th> Age </th>-->
-        <!--</tr>-->
-        <!--</thead>-->
-        <!--<tbody>-->
-        <!--<tr th:if="${users.empty}">-->
-            <!--<td colspan="2"> No Users Available </td>-->
-        <!--</tr>-->
-        <!--<tr th:each="u : ${users}">-->
-            <!--<td><span th:text="${u.id}"> ID </span></td>-->
-            <!--<td><span th:text="${u.name}"> Name </span></td>-->
-            <!--<td><span th:text="${u.lastName}"> Last_Name </span></td>-->
-            <!--<td><span th:text="${u.age}"> Age </span></td>-->
-            <!--<td><input type="hidden" th:value="${u.id}" name="id"/>-->
-                <!--<button type="submit" class="removebutton" name="action" value="remove">Remove</button>-->
-            <!--</td>-->
-        <!--</tr>-->
-        <!--</tbody>-->
-    <!--</table>-->
-<!--</div>-->
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
@@ -106,7 +49,7 @@
 <div th:align="center" class="tg">
     <h2>USERS</h2>
     <br/>
-    <h3><a href="/users/new.html">Add new User</a></h3>
+    <h3><a href="/users/add/">Add new User</a></h3>
     <br/>
     <table border="1" cellpadding="5">
         <tr>

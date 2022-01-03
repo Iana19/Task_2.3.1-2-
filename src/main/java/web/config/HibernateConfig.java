@@ -19,14 +19,13 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:app.properties")
-@ComponentScan(value = "web")  // 1?
+@ComponentScan(value = "web")
 
 public class HibernateConfig {
 
-    //    @Autowired  //3?
     private Environment environment;
 
-    @Autowired  //3?
+    @Autowired
     public void setEnvironment(Environment environment) {
         this.environment = environment;
     }
@@ -34,7 +33,7 @@ public class HibernateConfig {
     @Bean
     public DataSource getDataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(environment.getRequiredProperty("db.driver"));  //getRequiredProperty 2?
+        dataSource.setDriverClassName(environment.getRequiredProperty("db.driver"));
         dataSource.setUrl(environment.getRequiredProperty("db.url"));
         dataSource.setUsername(environment.getRequiredProperty("db.username"));
         dataSource.setPassword(environment.getRequiredProperty("db.password"));
@@ -45,7 +44,7 @@ public class HibernateConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(getDataSource());
-        em.setPackagesToScan("web.model");  //4?
+        em.setPackagesToScan("web.model");
         em.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties props = new Properties();
