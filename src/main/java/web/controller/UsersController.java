@@ -25,34 +25,18 @@ public class UsersController {
     }
 
     @GetMapping(value = "/users/new/")
-    public String newUser() {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("user", new User());
+    public String newUser(Model model) {
+        User user = new User();
+        model.addAttribute("user",user);
         return "new";
     }
 
     @PostMapping(value = "/add")
-    public String addUser(@ModelAttribute User user) {
-        userService.addUser(user);
+    public String addUser(User user) {
+        User user1 = new User(user.getName(), user.getLastName(), user.getAge());
+        userService.addUser(user1);
         return "redirect:/users";
     }
-
-//    @RequestMapping(value = {"/addWord"}, method = RequestMethod.POST)
-//    public String saveWord(Model model, @ModelAttribute("wordForm") WordForm wordForm) {
-//
-//        String word = wordForm.getWord();
-//        String translation = wordForm.getTranslation();
-//
-//        if (word != null && word.length() > 0 //
-//                && translation != null && translation.length() > 0) {
-//            Word newWord = new Word(word, translation);
-//            words.add(newWord);
-//
-//            return "redirect:/wordList";
-//        }
-//        model.addAttribute("errorMessage", errorMessage);
-//        return "addWord";
-//    }
 
     @GetMapping(value = "/edit/{id}")
     public String editUserForm(@PathVariable("id") long id, Model model) {
@@ -61,7 +45,7 @@ public class UsersController {
     }
 
     @PostMapping(value = "/edit")
-    public String editUser(@ModelAttribute User user) {
+    public String editUser(User user) {
         userService.updateUser(user);
         return "redirect:/users";
     }
